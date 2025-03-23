@@ -1,0 +1,545 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+}
+
+html {
+    font-size: 61.5%;
+    /* margin: 0 auto; */
+    /* padding: 9rem 2.5rem; */
+    font-family: "Poppins", serif;
+    font-style: normal;
+}
+
+/***** Theme Section *****/
+
+:root {
+    /* --heading-color: white;
+    --main-color: rgb(0, 142, 196); */
+    --text-color: rgba(0, 0, 0, 1);
+    /* --sub-text-color: rgb(140, 140, 140); */
+    --supporting-color: rgb(243, 243, 243);
+    --background-color: linear-gradient(90deg, #C1DEE8 0%, #FBD9B9 100%);
+
+}
+
+/***** End Theme Section *****/
+
+/***** Layout Section *****/
+
+.margin-auto {
+    margin: 0 auto;
+}
+
+.container {
+    width: 145rem;
+    margin: 0 auto;
+    /* padding: 0 2rem; */
+}
+
+.dis-flex {
+    display: flex;
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-two--cols {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-three--cols {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-four--cols {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+body {
+    width: 145rem;
+    padding:  0 4rem;
+}
+
+/***** End Layout Section *****/
+
+/***** Reusable Code Section *****/
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.font-16 {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.font-21 {
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+
+.font-28 {
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+.font-50 {
+    font-size: 5rem;
+    font-weight: 600;
+}
+
+.font-67 {
+    font-size: 6.7rem;
+    font-weight: 700;
+}
+
+.btn form {
+    margin-top: 2rem;
+    height: 5rem;
+    display: flex;
+    cursor: pointer;
+    width: 75%;
+    background-color: white;
+    border-radius: 60rem;
+    -webkit-border-radius: 60rem;
+    -moz-border-radius: 60rem;
+    -ms-border-radius: 60rem;
+    -o-border-radius: 60rem;
+    align-items: center;
+
+    & input {
+        width: 100%;
+        outline: none;
+        border: none;
+        font-weight: 500;
+        margin: 1rem 3rem;
+    }
+}
+
+button {
+    width: 18rem;
+    height: 100%;
+    color: white;
+    background-color: black;
+    padding: 1rem;
+    border-radius: 100rem;
+    -webkit-border-radius: 100rem;
+    -moz-border-radius: 100rem;
+    -ms-border-radius: 100rem;
+    -o-border-radius: 100rem;
+}
+
+/***** End Reusable Code Section *****/
+
+
+/***** Navbar Section *****/
+
+.section-navbar {
+    & .container {
+        
+        
+        padding: 2rem 4rem;
+        height: fit-content;
+        margin: 2rem auto;
+        background-color: var(--supporting-color);
+        border-radius: 7rem;
+        -webkit-border-radius: 7rem;
+        -moz-border-radius: 7rem;
+        -ms-border-radius: 7rem;
+        -o-border-radius: 7rem;
+        align-items: center;
+
+
+
+        & .navbar-brand {
+            background-color: var(--supporting-color);
+
+            /* position: absolute;
+            top: 35%;
+            left: 0%; */
+        }
+
+        & .dis-flex {
+            justify-content: right;
+            /* flex-direction: row-reverse; */
+        }
+
+        & .navbar {
+            width: 100%;
+            /* margin-left: 30rem; */
+            height: fit-content;
+            align-items: center;
+            text-align: center;
+            padding: 1rem;
+
+            & .middle-section,
+            .dis-flex {
+                width: 60rem;
+                padding: 1.5rem 3rem;
+                background-color: white;
+                justify-content: space-between;
+                border-radius: 7rem;
+                -webkit-border-radius: 7rem;
+                -moz-border-radius: 7rem;
+                -ms-border-radius: 7rem;
+                -o-border-radius: 7rem;
+            }
+
+            & .other-srv {
+                padding-left: 5rem;
+                /* position: absolute;
+                right: 15%; */
+            }
+
+            & .contact-btn {
+                padding-left: 5rem;
+
+                & pre {
+                    /* display: ; */
+                    padding: 1.5rem 3rem;
+                    border-radius: 7rem;
+                    -webkit-border-radius: 7rem;
+                    -moz-border-radius: 7rem;
+                    -ms-border-radius: 7rem;
+                    -o-border-radius: 7rem;
+                    border: 1px solid black;
+                }
+            }
+        }
+    }
+}
+
+/***** End Navbar Section *****/
+
+/***** Hero Section *****/
+
+main {
+    & .container {
+        background-image: var(--background-color);
+        height: 50rem;
+        margin: 2rem auto 10rem;
+        border-radius: 1.5rem;
+        -webkit-border-radius: 1.5rem;
+        -moz-border-radius: 1.5rem;
+        -ms-border-radius: 1.5rem;
+        -o-border-radius: 1.5rem;
+
+        & .grid-two--cols {
+            grid-template-columns: 1.5fr 1fr;
+        }
+
+        & .grid {
+            /* overflow-x: hidden; */
+            /* height: auto; */
+            width: auto;
+            /* overflow-clip-margin:hidden; */
+
+            grid-template-columns: 1.5fr 1fr;
+
+            & .heading-section {
+                height: fit-content;
+                /* background-color: blueviolet; */
+                text-align: left;
+                justify-items: left;
+                padding: 5rem;
+            }
+
+            & .image-section {
+                justify-content: left;
+                justify-items: left;
+                /* translate: 11% -12%; */
+
+                /* overflow: hidden; */
+                & img {
+
+                    rotate: y 180deg;
+                    width: 100%;
+                    height: 65rem;
+                    padding-bottom: 10rem;
+
+                }
+            }
+        }
+
+
+    }
+}
+
+/***** End Hero Section *****/
+
+/***** Steps for Register Section *****/
+
+.section-Register {
+
+    height: fit-content;
+
+    & .heading-section {
+        text-align: center;
+
+        & h2 {
+            padding: 2rem 0 4rem;
+        }
+    }
+
+    & .registration-steps {
+        height: fit-content;
+
+        & .card,
+        .grid {
+            width: fit-content;
+
+            & h3 {
+                padding: 3rem 0;
+            }
+        }
+    }
+}
+
+/***** End Steps for Register Section *****/
+
+/***** Recent Project Section *****/
+
+.section-Project {
+    height: fit-content;
+    margin: 15rem auto;
+
+    & .heading-section,
+    .dis-flex {
+        text-align: left;
+        justify-content: space-between;
+        align-items: center;
+
+        & .right {
+            i {
+                font-size: 3rem;
+                padding: 1.5rem 2rem;
+                border-radius: 100%;
+                -webkit-border-radius: 100%;
+                -moz-border-radius: 100%;
+                -ms-border-radius: 100%;
+                -o-border-radius: 100%;
+            }
+
+            & .fa-chevron-right {
+                background-color: black;
+                color: white;
+            }
+        }
+    }
+
+    & .project-cards,
+    .grid {
+        gap: 4rem;
+
+        & .card {
+            border: 2px solid rgb(217, 217, 217);
+            /* border-top: white; */
+            border-radius: 1.4rem;
+            -webkit-border-radius: 1.4rem;
+            -moz-border-radius: 1.4rem;
+            -ms-border-radius: 1.4rem;
+            -o-border-radius: 1.4rem;
+
+            & img {
+                width: 100%;
+                height: 40rem;
+                /* background-color: linear-gradient(90deg, #C1DEE8 0%, #FBD9B9 100%); */
+                border-radius: 1.4rem;
+                -webkit-border-radius: 1.4rem 1.4rem 0 0;
+                -moz-border-radius: 1.4rem;
+                -ms-border-radius: 1.4rem;
+                -o-border-radius: 1.4rem;
+            }
+
+            & .text-content {
+
+                padding: 2rem;
+
+                & p {
+                    padding: 2rem 0 0;
+                }
+            }
+        }
+    }
+}
+
+
+/***** End Recent Project Section *****/
+
+/***** Book Section *****/
+
+.book-section {
+    & .container {
+        height: fit-content;
+        /* background-color: #FBD9B9; */
+        margin-bottom: 10rem;
+
+        & .heading-section {
+            text-align: center;
+            padding-bottom: 2rem;
+        }
+
+        & .book-now {
+            padding: 0 5rem;
+
+            & .grid-two--cols {
+                grid-template-columns: 1.5fr 1fr;
+
+                & .text-area {
+                    & p {
+                        padding: 6rem 0;
+                    }
+
+                    & .btn-sec {
+                        margin-bottom: 6rem;
+
+                        button {
+                            margin-right: 2rem;
+                            width: 15rem;
+                            height: 6rem;
+                        }
+                    }
+
+                    & .count-section {
+                        height: fit-content;
+
+                        & .count {
+                            padding-right: 5rem;
+
+                            & p {
+                                line-height: 5rem;
+                                padding: 0;
+
+
+                            }
+                        }
+                    }
+                }
+
+                & img {
+                    width: 100%;
+                    height: 50rem;
+                    border-radius: 1.4rem;
+                    -webkit-border-radius: 1.4rem;
+                    -moz-border-radius: 1.4rem;
+                    -ms-border-radius: 1.4rem;
+                    -o-border-radius: 1.4rem;
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
+}
+
+/***** End Book Section *****/
+
+
+/***** Subscribe Section *****/
+
+.subscribe-section {
+    & .container {
+        height: 50rem;
+        border-radius: 1.5rem;
+        -webkit-border-radius: 1.5rem;
+        -moz-border-radius: 1.5rem;
+        -ms-border-radius: 1.5rem;
+        -o-border-radius: 1.5rem;
+
+
+        background-image: var(--background-color);
+
+        & .grid-two--cols {
+            grid-template-columns: 1.2fr 1fr;
+
+            & .heading-section {
+                padding: 4rem;
+                text-align: left;
+
+                & p {
+                    padding-bottom: 2rem;
+                }
+            }
+
+            & img {
+                height: 70rem;
+                width: 100%;
+                translate: 20px -8rem;
+            }
+
+        }
+
+    }
+}
+
+/***** End Subscribe Section *****/
+
+/***** Media Queries Section *****/
+
+@media (width <=550px) {
+    html {
+        font-size: 58%;
+    }
+
+    body{
+        width: 110rem;
+        padding: 0 4rem;
+    }
+
+    .container {
+        width: 100rem;
+    }
+
+    main {
+        & .container {
+            height: fit-content;
+            & .grid-two--cols {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                
+                & .image-section img{
+                    height: 70rem;
+                    padding-bottom: 0;
+                    width: 100%;
+                }
+            }
+        }
+    }
+
+    .other-srv{
+        display: none;
+    }
+
+    .subscribe-section{
+        & .container{
+            height: fit-content;
+            & .grid-two--cols{
+                grid-template-columns: 1fr;
+                align-items: center;
+                & img{
+                    translate: 0 0;
+                    height: 90rem;
+                }
+            }
+        }
+    }
+
+    .book-section{
+        & .container{
+            & .book-now .grid-two--cols{
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+    }
+
+}
+
+/***** End Media Queries Section *****/

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Assignments</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script defer src="script.js"></script>
+    <style>
+        body { text-align: center; padding: 20px; }
+        .container { max-width: 600px; margin: auto; }
+        .carousel img { width: 100%; height: 300px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>1. Digital Clock</h2>
+        <div id="clock" class="fs-3"></div>
+        <button class="btn btn-success" onclick="startClock()">Start Clock</button>
+        <button class="btn btn-danger mt-2" onclick="stopClock()">Stop Clock</button>
+
+        <h2 class="mt-4">2. Timer with Start, Pause, and Reset</h2>
+        <div id="timer" class="fs-3">0</div>
+        <button class="btn btn-success" onclick="startTimer()">Start</button>
+        <button class="btn btn-warning" onclick="pauseTimer()">Pause</button>
+        <button class="btn btn-danger" onclick="resetTimer()">Reset</button>
+
+        <h2 class="mt-4">3. Event Reminder</h2>
+        <input type="text" id="reminderText" placeholder="Enter message" class="form-control">
+        <input type="number" id="reminderTime" placeholder="Time in seconds" class="form-control mt-2">
+        <button class="btn btn-primary mt-2" onclick="setReminder()">Set Reminder</button>
+        <div id="reminderOutput" class="mt-2"></div>
+
+        <h2 class="mt-4">4. Image Carousel</h2>
+        <div id="carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://via.placeholder.com/600x300/ff0000/ffffff" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/600x300/00ff00/ffffff" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://via.placeholder.com/600x300/0000ff/ffffff" class="d-block w-100">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+    </div>
+    <script>
+        let clockInterval;
+
+function updateClock() {
+    document.getElementById("clock").innerText = new Date().toLocaleTimeString();
+}
+
+function startClock() {
+    if (!clockInterval) {
+        updateClock(); 
+        clockInterval = setInterval(updateClock, 1000);
+    }
+}
+
+function stopClock() {
+    clearInterval(clockInterval);
+    clockInterval = null;
+}
+
+startClock();
+
+        let timer = 0, timerInterval;
+        function startTimer() {
+            if (!timerInterval) {
+                timerInterval = setInterval(() => {
+                    document.getElementById("timer").innerText = ++timer;
+                }, 1000);
+            }
+        }
+        function pauseTimer() { clearInterval(timerInterval); timerInterval = null; }
+        function resetTimer() { pauseTimer(); timer = 0; document.getElementById("timer").innerText = "0"; }
+
+        function setReminder() {
+            let text = document.getElementById("reminderText").value;
+            let time = document.getElementById("reminderTime").value;
+            setTimeout(() => {
+                document.getElementById("reminderOutput").innerText = text;
+                alert("Reminder: " + text);
+            }, time * 1000);
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

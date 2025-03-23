@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <h2> To-Do List Manager</h2>
+  <div class="container">
+    <input type="text" id="newTask" class="text">
+    <button class="btn btn-primary" onclick="AddNewTask()">Add Task</button>
+    <button class="btn btn-primary" onclick="ClearAll()">Clear All</button>
+    <ul id="showlist" class="container w-50 mx"></ul>
+  </div>
+
+  <h2> Student Marks Calculator</h2>
+  <div class="container">
+    <input type="number" id="markInput" class="text">
+    <button class="btn btn-primary" onclick="AddMarks()">Add Mark</button>
+    <button class="btn btn-primary" onclick="calculator()">Calculate</button>
+    <button class="btn btn-primary" onclick="clearMarks()">Reset</button>
+    <!-- <ul id="showlist" class="container w-50 mx"></ul> -->
+  </div>
+  <h2> Search in Array</h2>
+  <div class="container">
+    <input type="text" id="car" class="text">
+    <button class="btn btn-primary" onclick="searchCar()">Search Car</button>
+    <ul id="carResult" class="container w-50 mx"></ul>
+    <!-- <ul id="showlist" class="container w-50 mx"></ul> -->
+  </div>
+
+
+  <h2>Filter Odd and Even Numbers</h2>
+  <div class="container">
+    <input type="text" id="addNum" class="text">
+    <button class="btn btn-primary" onclick="addNum()">Add Numbers</button>
+    <button class="btn btn-primary" onclick="even_num()">Even Numbers</button>
+    <button class="btn btn-primary" onclick="odd_num()">Odd Numbers</button>
+    <button class="btn btn-primary" onclick="reset_num()">Reset</button>
+    <ul  class="container bg-black w-50 mx m-2">
+      <li class="btn-primary  m-2">Even Numbers</li>
+      <li id="Even" class="btn-primary  m-2"></li>
+      <li class="btn-primary  m-2">Odd Numbers</li>
+      <li id="Odd" class="btn-primary  m-2"></li>
+    </ul>
+  </div>
+  <!-- Optional JavaScript -->
+
+  <script>
+
+    let number = [];
+    display_even_num = document.getElementById('Even');
+    display_odd_num = document.getElementById('Odd');
+
+    function addNum() {
+      let num = parseInt(document.getElementById("addNum").value);
+      number.push(num);
+      document.getElementById("addNum").value = '';
+      console.log(number);
+    }
+    function even_num() {
+          let even = number.filter((curr) => {
+              return curr % 2 == 0 
+          })
+
+          display_even_num.innerHTML = `${even}`
+    }
+    function odd_num() {
+          let odd = number.filter((curr) => {
+              return curr % 2 != 0 
+          })
+          display_odd_num.innerHTML = ` ${odd}`
+    }
+    function reset_num(){
+      number = [];
+      even_num();
+      odd_num();
+    }
+    even_num();
+    odd_num();
+
+
+
+
+
+    tasks = ['DS', 'AI/ML', 'CA']
+    list = document.getElementById('showlist');
+    function rendertask() {
+
+      list.innerHTML = tasks.map((task, index) => `
+                                                <li class="btn-primary">${task} </li>
+                                               <button class="btn btn-danger" onclick='deleteTask(${index})''></button>
+              `
+      ).join('')
+    }
+
+    function AddNewTask() {
+      newTask = document.getElementById('newTask').value;
+      console.log(newTask)
+      tasks.push(newTask)
+      console.log(newTask)
+      document.getElementById("newTask").value = ''
+      rendertask();
+    }
+
+    function ClearAll() {
+      tasks = []
+      console.log(task)
+      rendertask();
+      list.innerHTML = 'No Projects'
+    }
+
+    function deleteTask(i) {
+      console.log(i)
+      console.log(task)
+      tasks.splice(i, 1);
+      console.log(tasks);
+      rendertask();
+    }
+
+    rendertask();
+
+
+    let marks = [];
+
+    function AddMarks() {
+      const mark = parseInt(document.getElementById("markInput").value);
+      if (!isNaN(mark)) {
+        marks.push(mark);
+        document.getElementById("markInput").value = '';
+        console.log(marks)
+      }
+
+
+    }
+
+
+    function calculator() {
+      let total = 0;
+      let avg = 0;
+      let highest = 0;
+      let lowest = marks[0];
+
+
+      if (marks.length > 0) {
+        marks.map((element, index, arr) => {
+          total += element;
+          if (arr[index + 1] > element) {
+            highest = arr[index + 1];
+          }
+          if (arr[index + 1] < element) {
+            highest = arr[index + 1];
+          }
+
+        })
+      }
+      avg = total / marks.length;
+      console.log(highest);
+      console.log(lowest);
+    }
+
+    function clearMarks() {
+      marks = []; console.log(marks)
+    }
+
+
+    const cars = ["Toyota Corolla", "Honda Civic", "Ford Mustang", "Tesla Model 3", "BMW 3 Series", "Chevrolet Camaro", "Nissan Altima", "Jeep Wrangler", "Subaru Forester", "Hyundai Sonata"];
+
+    Cars = document.getElementById('carResult');
+    let carName = document.getElementById('car').value.trim().toLowerCase();
+
+
+    function searchCar() {
+      debugger
+      index = cars.findIndex((element) => carName == element.toLowerCase())
+      if (index >= 0) {
+        carName = `<li>${cars[index]}</li>`
+      }
+      else {
+        carName = `NO Result Found`
+      }
+    }
+
+
+
+  </script>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

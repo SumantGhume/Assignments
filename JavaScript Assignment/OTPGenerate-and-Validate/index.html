@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OTP Verification</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h2>OTP Verification</h2>
+        <button onclick="generateOTP()">Get OTP</button>
+        <p id="otpDisplay"></p>
+        <p>Please enter the OTP sent to your mobile:</p>
+        <input type="text" maxlength="1" id="digit1" oninput="moveToNext(this, 'digit2')">
+        <input type="text" maxlength="1" id="digit2" oninput="moveToNext(this, 'digit3')">
+        <input type="text" maxlength="1" id="digit3" oninput="moveToNext(this, 'digit4')">
+        <input type="text" maxlength="1" id="digit4">
+        <br>
+        <button onclick="verifyOTP()">Submit</button>
+    </div>
+    
+    <script>
+        let generatedOTP = "";
+
+        function generateOTP() {
+            generatedOTP = Math.floor(1000 + Math.random() * 9000).toString();
+            document.getElementById("otpDisplay").innerText = generatedOTP;
+        }
+
+        function moveToNext(current, nextID) {
+            if (current.value.length === 1) {
+                document.getElementById(nextID).focus();
+            }
+        }
+
+        function verifyOTP() {
+            let enteredOTP = "";
+            for (let i = 1; i <= 4; i++) {
+                enteredOTP += document.getElementById("digit" + i).value;
+            }
+
+            if (enteredOTP === generatedOTP) {
+                document.body.innerHTML = '<h1>Welcome to the Home Page!</h1><p>You have successfully verified your OTP.</p>';
+            } else {
+                alert("Invalid OTP. Please try again.");
+            }
+        }
+    </script>
+</body>
+</html>

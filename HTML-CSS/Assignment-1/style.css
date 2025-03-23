@@ -1,0 +1,283 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 61.5%;
+    font-family: "Poppins", serif;
+    font-style: normal;
+}
+
+body {
+    padding: 5rem;
+}
+
+
+/***** layout Section *****/
+
+.container {
+    width: 145rem;
+    margin: 0 auto;
+}
+
+.dis-flex {
+    display: flex;
+    align-items: center;
+}
+
+
+/***** End layout Section *****/
+
+/***** Reusable Section *****/
+
+li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+.font-16 {
+    font-size: 1.6rem;
+    font-weight: 400;
+}
+
+.font-21 {
+    font-size: 2.1rem;
+    font-weight: 600;
+}
+
+.font-28 {
+    font-size: 2.8rem;
+    font-weight: 600;
+}
+
+.font-50 {
+    font-size: 5rem;
+    font-weight: 600;
+}
+
+.font-67 {
+    font-size: 6.7rem;
+    font-weight: 700;
+}
+
+
+/***** End Reusable Section *****/
+
+/***** BCC Navbar Section *****/
+
+.section-navbar {
+    & .dis-flex {
+        align-items: center;
+    }
+
+    & .container {
+        height: fit-content;
+        background-color: black;
+
+        & .navbar-logo {
+            & img {
+                width: 12rem;
+                height: 5rem;
+                padding: 0 2rem;
+                border-right: 2px solid gray;
+            }
+        }
+
+        & .sign-in {
+            height: 5rem;
+            align-items: center;
+            border-right: 2px solid gray;
+            padding: 0 10rem 0 2rem;
+
+            & i {
+                align-self: center;
+                font-size: 3rem;
+                color: white;
+
+            }
+
+            & p {
+                color: white;
+                padding: 0 2rem;
+            }
+        }
+
+        & .navbar {
+
+            & .nav-items {
+                display: flex;
+                height: 5rem;
+                border-right: 2px solid gray;
+                align-items: center;
+            }
+
+            & ul li a {
+                padding: 0 2.5rem;
+                color: white;
+
+            }
+
+            form {
+                & div {
+                    padding: 0 2rem;
+                    height: 5rem;
+                    border-right: 2px solid gray;
+
+                    & select {
+                        width: 15rem;
+                        outline: none;
+                        height: 5rem;
+                        background-color: black;
+                        color: white;
+                        border: none;
+                    }
+
+                    margin-right: 2rem;
+                }
+
+                & input {
+                    height: 3.2rem;
+                    border: none;
+                    outline: none;
+                    padding-left: 3rem;
+                }
+
+                & i {
+                    background-color: white;
+                    font-size: 2.8rem;
+                    padding: .2rem;
+                }
+            }
+        }
+    }
+}
+
+/***** End BCC Navbar Section *****/
+
+/***** CNN Navbar Section *****/
+
+.cnn-section {
+    margin: 10rem 0rem;
+    height: fit-content;
+    width: 100%;
+    background-color: black;
+
+    & .container {
+        & .cnn-logo {
+            & img {
+                width: 8rem;
+                height: 5rem;
+            }
+        }
+
+        & .cnn-middle-section {
+            & ul li a {
+                color: white;
+                padding: 0 2rem;
+            }
+        }
+
+        & .cnn-end-section,
+        .dis-flex {
+            width: 100%;
+            justify-content: end;
+
+            & select {
+                border: none;
+                outline: none;
+                background-color: black;
+                color: white;
+                width: 9rem;
+            }
+
+            & i {
+                font-size: 2.5rem;
+                color: white;
+                padding: 0 2rem;
+            }
+        }
+    }
+}
+
+/***** End CNN Navbar Section *****/
+
+/***** Instagram Navbar Section *****/
+
+.instagram-section {
+    margin: 10rem 0rem;
+    height: fit-content;
+    width: 100%;
+    background-color: black;
+
+    & .container {
+        & .insta-logo {
+            & img {
+                width: 20rem;
+                height: 5rem;
+            }
+        }
+
+        & .insta-search-section {
+            height: 5rem;
+                width: 10rem;
+            & input {
+                height: 5rem;
+                width: 10rem;
+                outline: none;
+                /* background-color: gray; */
+                margin: 0 13rem;
+                border-radius: 12rem;
+                -webkit-border-radius: 12rem;
+                -moz-border-radius: 12rem;
+                -ms-border-radius: 12rem;
+                -o-border-radius: 12rem;
+            }
+
+        }
+
+        & .insta-end-section {
+            align-items: end;
+            color: white;
+        }
+    }
+}
+
+
+/***** End Instagram Navbar Section *****/
+
+/***** Youtube Section *****/ 
+
+.youtube-navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: #ff0000;
+    color: white;
+    padding: 10px 20px;
+}
+.youtube-navbar .logo {
+    font-weight: bold;
+    font-size: 20px;
+}
+.youtube-navbar input {
+    width: 300px;
+    padding: 5px;
+}
+.youtube-navbar button {
+    background: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+.youtube-navbar .user-icons span {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+/***** End Youtube Section *****/
