@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body>
+
+    <!-- ========== Start Card Section ========== -->
+
+
+    <div class="cards">
+        <div class="container">
+            <div class="img-section">
+                <img src="https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
+                    id="imageChange">
+            </div>
+            <div class="card-text bgColorcard">
+                <p class="car-icon d-flex car">CAR</p>
+
+                <h2>Mercedez Benz</h2> 
+                <p>Mileage: 400miles</p>
+                <p>Fuel: 25mpg</p>
+                <p class="d-flex">safety: <i class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> <i
+                        class="fa-solid fa-star"></i> <i class="fa-solid fa-star"></i> </p>
+
+                <div class="pick-color">
+                    <!-- <p>Pick color:</p> -->
+                    <button class="btn-red" onclick="selectRedCar()"></button>
+                    <button class="btn-blue" onclick="selectBlueCar()"></button>
+                    <button class="btn-gray" onclick="selectGrayCar()"></button>
+                    <p>$134,450</p>
+                    <p style="text-decoration: line-through;">$140,500</p>
+                </div>
+
+                <div class="add-to-cart car">
+                    <button class="cars"><i class="fa-solid fa-cart-shopping"></i>
+                        <p style="display: inline-block;">Add to Cart</p>
+                    </button>
+                </div>
+                <div class="add-to-cart car">
+                    <button class="bgColor" onclick="changeBgColor()"><i class="fa-solid fa-cart-shopping"></i>
+                        <p style="display: inline-block;">Chnage theme</p>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== End Card Section ========== -->
+
+
+    <script>
+
+        function selectRedCar() {
+            document.querySelector('.car').style.backgroundColor = 'red';
+            document.querySelector('.cars').style.backgroundColor = 'red';
+            imgTag = document.getElementById('imageChange')
+            imgTag.src = "https://imgd.aeplcdn.com/370x208/n/cw/ec/156405/xuv-3xo-exterior-right-front-three-quarter-33.jpeg?isig=0&q=80"
+        }
+
+        function selectBlueCar() {
+            document.querySelector('.car').style.backgroundColor = 'blue';
+            document.querySelector('.cars').style.backgroundColor = 'blue';
+            imgTag = document.getElementById('imageChange')
+            imgTag.src = "https://imgd.aeplcdn.com/370x208/n/cw/ec/141867/nexon-exterior-right-front-three-quarter-71.jpeg?isig=0&q=80"
+        }
+
+        function selectGrayCar() {
+            document.querySelector('.car').style.backgroundColor = 'gray';
+            document.querySelector('.cars').style.backgroundColor = 'gray';
+            imgTag = document.getElementById('imageChange')
+            imgTag.src = "https://imgd.aeplcdn.com/642x336/n/cw/ec/168707/syros-exterior-right-front-three-quarter.jpeg?isig=0&q=80"
+        }
+        function changeBgColor() {
+            let bgcolor = document.getElementsByClassName('bgColor');
+            let bgColorcard = document.getElementsByClassName('bgColorcard');
+            let text1 = document.getElementsByClassName('card-text');
+            let text = document.getElementsByTagName('p')
+            let body = document.getElementsByTagName('body')
+
+
+            for (i = 0; i < bgcolor.length; i++) {
+                if (bgColorcard[i].style.backgroundColor == 'green') {
+                    bgcolor[i].style.backgroundColor = 'yellow';
+                    bgColorcard[i].style.backgroundColor = 'orange';
+                    text[i].style.color = 'black';
+                    text1[i].style.color = 'black';
+                    body[i].style.backgroundColor = 'white';
+                }
+                else {
+                    bgcolor[i].style.backgroundColor = 'blue';
+                    bgColorcard[i].style.backgroundColor = 'green';
+                    text[i].style.color = 'white';
+                    text1[i].style.color = 'white';
+                    body[i].style.backgroundColor = 'rgb(134, 134, 240)';
+                }
+            }
+            console.log("first")
+
+
+            console.log("first")
+        }
+
+
+    </script>
+
+
+
+
+</body>
+
+</html>

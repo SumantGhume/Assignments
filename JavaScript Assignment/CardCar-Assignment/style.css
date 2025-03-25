@@ -1,0 +1,189 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: white;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
+.container {
+    max-width: 58rem;
+    margin: 0 auto;
+    /* padding: 3rem; */
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+.d-flex {
+    display: flex;
+    align-items: center;
+    /* justify-content: left; */
+}
+
+.grid {
+    display: grid;
+}
+
+.grid-two--cols {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-three--cols {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-four--cols {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+
+/***** Card Section *****/
+
+.cards {
+    .container {
+        .img-section {
+            display: flex;
+            justify-content: center;
+        }
+        img {
+            height: 30rem;
+            width: 50rem;
+            
+        }
+        
+        .bgColorcard{
+            background-color: green;
+        }
+
+        .card-text {
+            /* height: 90rem; */
+            padding: 3rem;
+            color: white;
+            
+            height: fit-content;
+            border-radius: 2rem;
+            -webkit-border-radius: 2rem;
+            -moz-border-radius: 2rem;
+            -ms-border-radius: 2rem;
+            -o-border-radius: 2rem;
+
+            .car-icon {
+
+                font-weight: 900;
+                font-size: 1.5rem;
+                height: 3rem;
+                width: 8rem;
+                background-color: red;
+                justify-content: center;
+
+                border-radius: .5rem;
+                -webkit-border-radius: .5rem;
+                -moz-border-radius: .5rem;
+                -ms-border-radius: .5rem;
+                -o-border-radius: .5rem;
+
+            }
+
+
+            h2 {
+                font-size: 3rem;
+                padding: 1rem 0;
+            }
+
+            p {
+                font-size: 1.5rem;
+                padding: 0.2rem 0;
+
+                .fa-solid {
+                    color: gold;
+                    padding: 0 0.2rem;
+                }
+
+            }
+
+            .pick-color {
+                padding: 2rem 0;
+                display: flex;
+                align-items: center;
+                /* justify-content: center; */
+
+                button {
+                    height: 2rem;
+                    width: 2rem;
+                    border-radius: 50%;
+                    -webkit-border-radius: 50%;
+                    -moz-border-radius: 50%;
+                    -ms-border-radius: 50%;
+                    -o-border-radius: 50%;
+                    border: none;
+
+                }
+
+                p {
+                    padding-left: 1rem;
+                    font-size: 2rem;
+                    
+
+                }
+                
+
+                .btn-red {
+                    margin: .5rem;
+                    background-color: red;
+                }
+                .btn-blue {
+                    margin: .5rem;
+                    background-color: blue;
+                }
+                .btn-gray {
+                    margin: .5rem;
+                    background-color: gray;
+                }
+
+
+
+            }
+
+            .add-to-cart {
+                
+                & button {
+                    margin: 2rem 0;
+                    width: 20rem;
+                    height: 4rem;
+                    background-color: red;
+                    border: none;
+                    border-radius: 1rem;
+                    -webkit-border-radius: 1rem;
+                    -moz-border-radius: 1rem;
+                    -ms-border-radius: 1rem;
+                    -o-border-radius: 1rem;
+                    
+                }
+                .bgColor{
+                    background-color: blue;
+                }
+
+            }
+        }
+
+    }
+}
+
+
+
+
+
+/***** End Card Section *****/
