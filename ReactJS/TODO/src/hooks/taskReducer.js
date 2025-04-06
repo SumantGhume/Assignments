@@ -31,20 +31,13 @@ const taskReducer = (state , action) => {
 
     case "toggleComplete":
       console.log("vlaue sent:",action.payload.id)
-      return state.map((task)=>{
-        if( task.id === action.payload.id){
-          console.log("value in array search:",task.id)
-          task.id === action.payload.id ? {...task, complete: (task.complete = true)} : {...task, complete: (task.complete = false)}
-          console.log("Value Changed:",task.complete)
-         
-          
-        }
-        console.log(task)
+      return state.map((task)=>
 
-        // task.id === action.payload ? { ...task, complete: !task.complete } : task
-          
+        task.id === action.payload.id
+          ? { ...task, complete: !task.complete }
+          : task
 
-      });
+        );
 
       // return [...state, {complete:status}]
       
