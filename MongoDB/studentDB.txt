@@ -1,0 +1,293 @@
+use studentDB
+switched to db studentDB
+db.students.insertMany( [
+  {
+    "name": "Alice Johnson",
+    "age": 21,
+    "email": "alice@example.com",
+    "course": "Computer Science",
+    "marks": [85, 90, 88],
+    "city": "New York"
+  },
+  {
+    "name": "Bob Williams",
+    "age": 22,
+    "email": "bob@example.com",
+    "course": "Mechanical Engineering",
+    "marks": [78, 83, 80],
+    "city": "Los Angeles"
+  },
+  {
+    "name": "Charlie Brown",
+    "age": 20,
+    "email": "charlie@example.com",
+    "course": "Electrical Engineering",
+    "marks": [92, 89, 95],
+    "city": "Chicago"
+  }
+]
+)
+{
+  acknowledged: true,
+  insertedIds: {
+    '0': ObjectId('683fd6bd1ddd8010803c214e'),
+    '1': ObjectId('683fd6bd1ddd8010803c214f'),
+    '2': ObjectId('683fd6bd1ddd8010803c2150')
+  }
+}
+db.students.insertMany([])
+MongoInvalidArgumentError: Invalid BulkOperation, Batch cannot be empty
+db.students.find().pretty()
+{
+  _id: ObjectId('683fd6bd1ddd8010803c214e'),
+  name: 'Alice Johnson',
+  age: 21,
+  email: 'alice@example.com',
+  course: 'Computer Science',
+  marks: [
+    85,
+    90,
+    88
+  ],
+  city: 'New York'
+}
+{
+  _id: ObjectId('683fd6bd1ddd8010803c214f'),
+  name: 'Bob Williams',
+  age: 22,
+  email: 'bob@example.com',
+  course: 'Mechanical Engineering',
+  marks: [
+    78,
+    83,
+    80
+  ],
+  city: 'Los Angeles'
+}
+{
+  _id: ObjectId('683fd6bd1ddd8010803c2150'),
+  name: 'Charlie Brown',
+  age: 20,
+  email: 'charlie@example.com',
+  course: 'Electrical Engineering',
+  marks: [
+    92,
+    89,
+    95
+  ],
+  city: 'Chicago'
+}
+db.students.find({  name: 'Alice Johnson'}).pretty()
+{
+  _id: ObjectId('683fd6bd1ddd8010803c214e'),
+  name: 'Alice Johnson',
+  age: 21,
+  email: 'alice@example.com',
+  course: 'Computer Science',
+  marks: [
+    85,
+    90,
+    88
+  ],
+  city: 'New York'
+}
+db.students.find({  age:{$gt:21}}).pretty()
+{
+  _id: ObjectId('683fd6bd1ddd8010803c214f'),
+  name: 'Bob Williams',
+  age: 22,
+  email: 'bob@example.com',
+  course: 'Mechanical Engineering',
+  marks: [
+    78,
+    83,
+    80
+  ],
+  city: 'Los Angeles'
+}
+db.students.find({  marks:{$gt:85}}).pretty()
+{
+  _id: ObjectId('683fd6bd1ddd8010803c214e'),
+  name: 'Alice Johnson',
+  age: 21,
+  email: 'alice@example.com',
+  course: 'Computer Science',
+  marks: [
+    85,
+    90,
+    88
+  ],
+  city: 'New York'
+}
+{
+  _id: ObjectId('683fd6bd1ddd8010803c2150'),
+  name: 'Charlie Brown',
+  age: 20,
+  email: 'charlie@example.com',
+  course: 'Electrical Engineering',
+  marks: [
+    92,
+    89,
+    95
+  ],
+  city: 'Chicago'
+}
+db.students.countDocuments({course:"Mechanical Engineering"})
+1
+db.students.find().sort({age:-1}).pretty()
+{
+  _id: ObjectId('683fd6bd1ddd8010803c214f'),
+  name: 'Bob Williams',
+  age: 22,
+  email: 'bob@example.com',
+  course: 'Mechanical Engineering',
+  marks: [
+    78,
+    83,
+    80
+  ],
+  city: 'Los Angeles'
+}
+{
+  _id: ObjectId('683fd6bd1ddd8010803c214e'),
+  name: 'Alice Johnson',
+  age: 21,
+  email: 'alice@example.com',
+  course: 'Computer Science',
+  marks: [
+    85,
+    90,
+    88
+  ],
+  city: 'New York'
+}
+{
+  _id: ObjectId('683fd6bd1ddd8010803c2150'),
+  name: 'Charlie Brown',
+  age: 20,
+  email: 'charlie@example.com',
+  course: 'Electrical Engineering',
+  marks: [
+    92,
+    89,
+    95
+  ],
+  city: 'Chicago'
+}
+db.students.updateOne(
+{ name:"Charlie Brown"},
+)
+MongoInvalidArgumentError: Update document requires atomic operators
+db.students.updateOne(
+{ name:"Charlie Brown"},
+  {$set: {grade:"A"}}
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.students.updateOne(
+  {name: "Alice Johnson"},
+  {$push: {marks:95}}
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.students.updateOne(
+{ name:"Charlie Brown"},
+  {$set: {city: "Boston"}}
+)
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+db.students.updateMany({},{$inc:{age:1}})
+{
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 3,
+  modifiedCount: 3,
+  upsertedCount: 0
+}
+db.students.find()
+{
+  _id: ObjectId('683fd6bd1ddd8010803c214e'),
+  name: 'Alice Johnson',
+  age: 22,
+  email: 'alice@example.com',
+  course: 'Computer Science',
+  marks: [
+    85,
+    90,
+    88,
+    95
+  ],
+  city: 'New York'
+}
+{
+  _id: ObjectId('683fd6bd1ddd8010803c214f'),
+  name: 'Bob Williams',
+  age: 23,
+  email: 'bob@example.com',
+  course: 'Mechanical Engineering',
+  marks: [
+    78,
+    83,
+    80
+  ],
+  city: 'Los Angeles'
+}
+{
+  _id: ObjectId('683fd6bd1ddd8010803c2150'),
+  name: 'Charlie Brown',
+  age: 21,
+  email: 'charlie@example.com',
+  course: 'Electrical Engineering',
+  marks: [
+    92,
+    89,
+    95
+  ],
+  city: 'Boston',
+  grade: 'A'
+}
+db.students.deleteOne({name:"Alice Johnson"})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.students.deleteMany({city: "Los Angeles"})
+{
+  acknowledged: true,
+  deletedCount: 1
+}
+db.students.deleteMany({age: {$lt:21}})
+{
+  acknowledged: true,
+  deletedCount: 0
+}
+db.students.find()
+{
+  _id: ObjectId('683fd6bd1ddd8010803c2150'),
+  name: 'Charlie Brown',
+  age: 21,
+  email: 'charlie@example.com',
+  course: 'Electrical Engineering',
+  marks: [
+    92,
+    89,
+    95
+  ],
+  city: 'Boston',
+  grade: 'A'
+}
